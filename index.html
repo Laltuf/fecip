@@ -1,0 +1,138 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <title>
+        <%= locals.title %>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" defer src="/js/script.js"></script>
+    <script src="/js/jquery.js"></script>
+
+    <script src="/js/tinymce/tinymce.min.js"></script>
+
+</head>
+
+
+
+<div class="container">
+    <header class="header">
+
+        <a href="index.html">
+            <img src="logotipo.png" class="logo-header" />
+        </a>
+
+        <nav class="header__nav">
+            <ul>
+                <li>
+                    <a href="/" class="">Home</a>
+                </li>
+                <li>
+                    <a href="/about" class="">About</a>
+                </li>
+                <li>
+                    <a href="/contact" class="">Contato</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header__button">
+            <button class="searchButton" aria-expanded="false">
+                Pesquisar
+                <svg width="17" height="17" viewbox="0 0 17 17" fill="none" xmins="http://www.w3.org/2000/svg">
+                    <path
+                        d="M7.79167 13.4583C10.9213 13.4583 13.4583 10.9213 13.4583 7.79167C13.4583 4.66205 10.9213 2.125 7.79167 2.125C4.66205 2.125 2.125 4.66205 2.125 7.79167C2.125 10.9213 4.66205 13.4583 7.79167 13.4583Z"
+                        stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M14.875 14.875L11.7938 11.7938" stroke="black" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+
+    </header>
+    <p style="text-align: center"><b>VERSÃO ALFA:</b> projeto não finalizado.</p>
+
+    <div class="star-overlay"></div>
+<style>
+    body{
+        background-position: 1100px 200px; /* 20px da esquerda e 50px do topo */
+    }
+    
+    
+    
+
+    
+</style>
+<div class="star" style="top: 56%; left: 25%;"></div>
+<div class="star" style="top: 24%; left: 68%;"></div>
+<div class="star" style="top: 74%; left: 42%;"></div>
+<div class="star" style="top: 16%; left: 20%;"></div>
+<div class="star" style="top: 34%; left: 40%;"></div>
+<div class="star" style="top: 11%; left: 60%;"></div>
+<div class="star" style="top: 10%; left: 22%;"></div>
+<div class="star" style="top: 3%; left: 95%;"></div>
+<div class="star" style="top: 50%; left: 54%;"></div>
+<div class="star" style="top: 15%; left: 90%;"></div>
+<div class="star" style="top: 30%; left: 10%;"></div>
+<div class="star" style="top: 80%; left: 10%;"></div>
+<div class="star" style="top: 80%; left: 60%;"></div>
+    <!-- INDEX COMEÇA A PARTIR DAQUI -->
+
+
+
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <div class="author">
+        <h3>
+            nome do usuário logado (favor tirar daqui e criar um header bonito)
+        </h3>
+        <h1 class="author__heading">CONNECTIONS: SPARKS</h1>
+        <p class="author__body">Faça parte da nossa galáxia! Crie um perfil:</p>
+        <a href="/criar" class="btn">Criar Novo Perfil</a>
+        <a href="/novogrupo" class="btn"> NOVA CONSTELAÇÃO</a>
+        <a href="/listagrupos" class="btn"> VER CONSTELAÇÕES (grupos)</a>
+    </div>
+
+
+    <section class="articles">
+        <h2 class="articles__heading" style="text-align: center;">Últimas Publicações:</h2>
+
+        <div class="publications">
+                <div class="boxPublicacoes">
+                    <a href="/publicacao/<%= publicacao._id %>">
+                        Título da Publicação<a> <i class="material-symbols-outlined" style="font-size: 1rem;">
+                                    north_east</i> <br>
+                                <b><i>Por:</b>
+                                Nome do Autor </i> <br>
+                                    <p class="textoBox">
+                                        Texto da Publicação
+                                    </p>
+                </div>
+                
+        </div>
+
+        <h2 class="articles__heading" style="margin-bottom: 0;">Perfis:</h2>
+
+        <ul class="article-ul">
+                <li>
+                    <a href="post.html">
+                        <img src='user.png' class="foto-perfil">
+                        <span class="article-list__name">
+                            Nome do Usuário
+                        </span>
+                        <span class="article-list__date">Criado em: 23/11/2007
+                                <p>Curtidas: X
+                                </p></span>
+                    </a>
+                </li>
+        </ul>
+
+            <a href="/?page=<%= nextPage %>" class="pagination">&lt; Ver perfis anteriores</a>
+    </section>
+
+
+</div>
