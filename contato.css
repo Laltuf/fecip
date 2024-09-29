@@ -1,7 +1,19 @@
-body 
-{
-    
-    background-color: #171717;
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--gray-light);
+  font-size: var(--font-size-base);
+  background-color: #0e0427; /* Cor de fundo que combina com a imagem */
+  background-image: url("/img/img-noise-361x370.png");
+  margin: 0;
+  background-image: url('https://cdn.dribbble.com/users/518045/screenshots/15443059/media/d3899c81930930b16696c029a0fa613b.png?resize=800x600&vertical=cente');
+  background-repeat: no-repeat;
+  background-position: 900px 125px; /* 20px da esquerda e 50px do topo */
+} 
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 .header {
     display: grid;
@@ -46,7 +58,7 @@ body
   
   .header__button {
     display: flex;
-    justify-content: end;
+    justify-content: start;
     grid-area: button;
   }
   
@@ -65,6 +77,7 @@ body
     font-size: 1rem;
     font-weight: 600;
     color: var(--gray-light);
+    margin-left: -220%;
   }
   
   .header__button button:hover {
@@ -294,6 +307,7 @@ body
     max-width: 190px;
     filter: drop-shadow(0px 44px 34px rgba(0, 0, 0, 0.25));
     position: relative;
+    left: 150px;
   }
   
   #HASH {
@@ -357,14 +371,7 @@ body
     --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
     --border-radius: 10px;
   }
-  body {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--gray-light);
-    font-size: var(--font-size-base);
-    background-color: #171717;
-    background-image: url("/img/img-noise-361x370.png");
-    margin: 0;
-  } 
+  
   
   
   a { color: var(--gray-light); }
@@ -454,6 +461,7 @@ margin-left: 42.5%;
     margin: 20px auto; /* Margem superior e inferior, centralizado horizontalmente */
     max-width: 600px; /* Largura máxima da seção */
     text-align: left; /* Centraliza o texto */
+    margin-right: 50%;
 }
 
 .contact-info h2 {
@@ -473,6 +481,7 @@ margin-left: 42.5%;
   margin: 50px 0; /* Margem superior e inferior para cada item */
   font-size: 200%; /* Tamanho da fonte */
   margin-left: 24%;
+  color: #ffffff;
 }
 .contact-info p {
   margin-top: 40px; /* Margem superior para o parágrafo do Instagram */
