@@ -1,0 +1,184 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <title>
+        <%= locals.title %>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" defer src="/js/script.js"></script>
+    <script src="/js/jquery.js"></script>
+
+    <script src="/js/tinymce/tinymce.min.js"></script>
+
+</head>
+
+
+
+<div class="container">
+    <header class="header">
+
+        <a href="index.html">
+            <img src="logotipo.png" class="logo-header" />
+        </a>
+
+        <nav class="header__nav">
+            <ul>
+                <li>
+                    <a href="/" class="">Home</a>
+                </li>
+                <li>
+                    <a href="/about" class="">About</a>
+                </li>
+                <li>
+                    <a href="/contact" class="">Contato</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header__button">
+            <button class="searchButton" aria-expanded="false">
+                Pesquisar
+                <svg width="17" height="17" viewbox="0 0 17 17" fill="none" xmins="http://www.w3.org/2000/svg">
+                    <path
+                        d="M7.79167 13.4583C10.9213 13.4583 13.4583 10.9213 13.4583 7.79167C13.4583 4.66205 10.9213 2.125 7.79167 2.125C4.66205 2.125 2.125 4.66205 2.125 7.79167C2.125 10.9213 4.66205 13.4583 7.79167 13.4583Z"
+                        stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M14.875 14.875L11.7938 11.7938" stroke="black" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+
+    </header>
+    <p style="text-align: center"><b>VERSÃO ALFA:</b> projeto não finalizado.</p>
+
+
+
+
+    <div></div>
+    <img src="user.png" class="foto-perfil">
+    <div class="nome-perfil" id="nome"><b>
+            Nome do Usuário
+        </b></div>
+    Curtidas: <label type="number" id="numeroCurtidas">
+        X
+    </label>
+
+
+
+
+    <div style="margin-top: 1%; margin-bottom: 1%;">
+        caso o usuário esteja logado:
+        <a href="/editar-perfil/<%= data._id %>" class="btn">Editar Perfil</a>
+<form action="/curtir/<%= data.id %>" method="POST">
+    <input type="submit" value="Curtir Perfil" class="btn">
+</form>
+
+    </div>
+
+
+    <div style="margin-top: 5%;">
+        <p> <b>Instagram: </b> <a href="https://www.instagram.com/<%= data.insta %>/" target="_blank"
+                rel="noopener noreferrer">@abc</a> </p>
+
+        <p>
+            <b>Sexo:</b>
+            helicopter helicopter
+        </p>
+
+        <p> <b> Interesses: </b>
+            a, b, c.
+        </p>
+
+        <p> <b> Nascimento: </b>
+            01/01/1000
+        </p>
+
+        <b>Biografia:</b>
+        <article class="article">
+            Biografia
+        </article>
+    </div>
+
+
+
+
+    <h1></h1>
+    <div>
+        INFORMAÇÕES DE DIAGNÓSTICO:<br>
+        <b> ID: </b>
+        id <br>
+        <b> Criado em: </b>
+        1111
+    </div>
+
+
+
+
+    <h1></h1>
+    <a href="/interesses/<%= data.id %>">[!] EDITAR TAGS [!]</a>
+
+    <a href="/verify/<%= data.id %>">[@] VER CONSTELAÇÃO [@]</a>
+
+
+
+
+    <form action="/post/<%= data.id %>" method="POST">
+        <h3>CRIAR POST:</h3>
+
+        <div style="display: flex;">
+            <img src="user.png" class="foto-perfil">
+            <div style="flex: 1; padding-left: 20px;">
+
+                <b>Nome do Usuário Logado</b> - <font color="grey"><i>(Por favor, mantenha o respeito.)</i></font>
+
+                <textarea name="texto" id="texto" coLs="50" rows="4" maxlength="200" oninput="atualizarContador()"
+                    style="resize:none; width: 100%; height: 38%;"></textarea>
+
+                <div style="display: flex; align-items: center;">
+                    <input type="submit" value="Adicionar" class="btn">
+                    <div id="contador" style="padding-left: 2%;"></div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+
+
+
+    <h3>POSTS:</h3>
+    <ul class="publicação-ul">
+        <div style="display: flex;">
+            <img src="user.png" class="foto-perfil">
+            <div style="flex: 1; padding-left: 20px;">
+
+                <font color="yellow"> &starf; </font>
+                <b> Nome do Usuário </b>
+
+                <div style="resize:none; padding-bottom: 10%;">
+                    Texto do post.
+                </div>
+
+            </div>
+        </div>
+    </ul>
+
+</div> <br>
+<script>
+    function atualizarContador() { //contador de letras dos comentários!
+        var input = document.getElementById('texto');
+        var contador = document.getElementById('contador');
+        var caracteresRestantes = 250 - input.value.length;
+        contador.textContent = "Caracteres restantes: " + caracteresRestantes + "/250";
+    };
+
+    function atualizarCurtidas() {
+        var numero = document.getElementById('numeroCurtidas');
+
+        numero.textContent = numero + 1;
+    }
+
+</script>
