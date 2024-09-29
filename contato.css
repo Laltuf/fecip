@@ -1,57 +1,507 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--gray-light);
+  font-size: var(--font-size-base);
+  background-color: #0e0427; /* Cor de fundo que combina com a imagem */
+  background-image: url("/img/img-noise-361x370.png");
+  margin: 0;
+  background-image: url('https://cdn.dribbble.com/users/518045/screenshots/15443059/media/d3899c81930930b16696c029a0fa613b.png?resize=800x600&vertical=cente');
+  background-repeat: no-repeat;
+  background-position: 900px 125px; /* 20px da esquerda e 50px do topo */
+} 
 
-</head>
-<body>
-    <link rel="stylesheet" href="contato.css">
-    <header class="header">
-
-        <a href="/">
-            <img src="/img/logotipo_provisorio.png" class="logo-header"/>
-        </a>
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.header {
+    display: grid;
+    align-items: flex-end;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "logo button"
+    "menu menu";
+    padding-top: 15px;
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .header {
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas: 
+      "logo menu button";
+    }
+  }
+  
+  .header__logo {
+    font-weight: 800;
+    font-size: 25px;
+    text-decoration: none;
+    grid-area: logo;
     
-        <nav class="header__nav">
-            <ul>
-                <li>
-                    <a href="/" class="">Home</a>
-                </li>
-                <li>
-                    <a href="/about" class="">About</a>
-                </li>
-                <li>
-                    <a href="/contact" class="">Contato</a>
-                </li>
-            </ul>
-        </nav>
+  }
+  
+  .header__logo:hover {
+    text-decoration: underline;
+  }
+  
+  .header__nav {
+    margin-left: 41%;
+    display: flex;
+    grid-area: menu;
+  }
+  
+  .header__logo, .header__nav, .header__button {
+    width: 100%;
+  }
+  
+  .header__button {
+    display: flex;
+    justify-content: start;
+    grid-area: button;
+  }
+  
+  
+  .header__button button {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    border: 0;
+    padding: 6px 12px;
+    background: none;
+    background-color: #b100f7;
+    filter: drop-shadow(0px 44px 34px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+    border: 2px solid transparent;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-light);
+    margin-left: -220%;
+  }
+  
+  .header__button button:hover {
+    border: 2px solid var(--gray-light);
+  }
+  
+  /* Header -> Navigation */
+  .header__nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 0;
+  }
+  
+  .header__nav ul a {
+    padding: 10px;
+    text-decoration: none;
+  }
+  
+  .header__nav ul a.active {
+    color: #7E7E7E;
+  }
+  
+  .header__nav ul a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Author - HomePage */
+  .author {
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  .author__heading {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .author__body {
+    font-size: var(--font-size-md);
+    margin: 5px 0 40px 0;
+  }
+  /* Home Article List */
+.articles__heading {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+  
+  .article-ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .article-list__date {
+    font-size: 1rem;
+    color: var(--gray);
+    width: 100px;
+    display: inline-block;
+    width: 260px;
+  }
+  
+  .article-ul li a {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    margin: 18px 0;
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .article-ul li a {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .article-list__name {
+      text-align: left;
+      align-items: start;
+    }
+  
+    .article-list__date {
+      text-align: right;
+    }
+  }
+  
+  .article-ul li {
+    font-size: 24px;
+    cursor: pointer;
+    transition: filter 0.1s;
+  }
+  
+  .article-ul li:not(:last-child) {
+    border-bottom: 1px solid var(--gray-light);
+  }
+  
+  .article-ul li:hover {
+    filter: none;
+  }
+  
+  .article-ul:hover li {
+    filter: blur(3px);
+  }
+  
+  .article-ul:hover li:hover {
+    filter: none;
+  }
+  
+  
+  .article {
+    white-space: pre-wrap;
+  }
+  
+  
+  /* Footer */
+  .footer {
+    margin: 4rem;
+    text-align: center;
+  }
+  
+  
+  /* Dashboard Admin */
+  .admin-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .admin-posts {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .admin-post-controls form {
+    display: inline-block;
+  }
+  
+  .admin-post-controls .btn  {
+    display: inline-block;
+    background-color: #363636;
+    color: var(--gray-light);
+    border: 0;
+    text-decoration: none;
+    font-size: .8rem;
+    padding: 4px 8px;
+    line-height: 2;
+  }
+  
+  .admin-posts li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  
+  /* SeachBar */
+  .searchBar {
+    visibility: hidden;
+    transform: translateY(-100px);
+    background-color: var(--black);
+    padding: 20px;
+    position: absolute;
+    z-index: 1;
+    left: -20px; /* Move a barra de pesquisa 20px para a esquerda da borda esquerda do contêiner pai */
+  width: 300px;
     
-        <div class="header__button">
-            <button class="searchButton" aria-expanded="false">
-                Pesquisar
-                <svg width="17" height="17" viewbox="0 0 17 17" fill="none" xmins="http://www.w3.org/2000/svg">
-                    <path d="M7.79167 13.4583C10.9213 13.4583 13.4583 10.9213 13.4583 7.79167C13.4583 4.66205 10.9213 2.125 7.79167 2.125C4.66205 2.125 2.125 4.66205 2.125 7.79167C2.125 10.9213 4.66205 13.4583 7.79167 13.4583Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M14.875 14.875L11.7938 11.7938" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-        </div>
+  }
+  
+  
+  .searchBar.open {
+    transform: translateY(0);
+    transition: transform 0.1s;
+  }
+  
+  .searchBar input {
+    margin: 0;
+    border: 0;
+  }
+  
+  #searchClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--gray-light);
+    padding: 15px;
+  }
+  
+  
+  .pagination {
+    font-size: 1.3rem;
+    color: var(--gray);
+    text-decoration: none;
+    margin-top: 40px;
+    display: inline-block;
+  }
+  
+  .pagination:hover {
+    color: var(--black);
+  }
+  
+  .alerta_admin {
+    justify-content: center;
+    display: flex;
+    text-align: center;
+  }
+  
+  .foto-perfil {
+    max-height: 100px;
+    max-width: 100px;
+    filter: drop-shadow(0px 44px 34px rgba(0, 0, 0, 0.25));
+    overflow: hidden;
+    border-radius: var(--border-radius);
+  }
+  
+  .nome-perfil {
+    font-size: var(--font-size-lg);
+  
+  }
+  
+  .logo-header {
+    max-height: 60px;
+    width: 100%;
+    max-width: 190px;
+    filter: drop-shadow(0px 44px 34px rgba(0, 0, 0, 0.25));
+    position: relative;
+    left: 150px;
+  }
+  
+  #HASH {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Grupos  */
+  .publicação-ul {
+    list-style-type: none;
+    font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+    display: flex;
+    flex-direction: column;
+    background-color: #2c2a2a;
+    border-radius: 10px;
+    border: 1.9px solid;
+    border-color: #b100f7;
+    margin-bottom: 1rem;
+    padding: 0.5em;
+  }
+  
+  .boxPublicacoes {
+    width: 280px;
+    height: 140px;
+    background-color: #2c2a2a;
+    color: #000;
+    border: 1.9px solid;
+    border-radius: 10px;
+    border-color: #b100f7;
+    margin-right: 0.7em;
+    padding: 0.5em;
+    box-shadow: 0px 20px 50px -10px rgba(0,0,0,0.2);
+  }
+  
+  .textoBox {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3; /* estamos definindo line-clamp novamente por compatibilidade */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .publications {
+    max-width: 100%;
+    padding: 5px;
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 3px;
+    overflow-x: auto;
+  }
+  :root {
+    --black: #1c1c1c;
+    --gray: #7E7E7E;
+    --gray-light: #E4E4E4;
+    --red: #b30000;
+    --purple: #b100f7;
+    --font-size-base: 1rem;
+    --font-size-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+    --font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+    --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+    --border-radius: 10px;
+  }
+  
+  
+  
+  a { color: var(--gray-light); }
+  h1 { font-size: var(--font-size-xl); }
+  h2 { font-size: var(--font-size-lg); }
+  h3 { font-size: var(--font-size-md); }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  select,
+  textarea {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.7rem 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .btn {
+    background-color: var(--purple);
+    background-image: linear-gradient(#cf57ff, #7700a7);
+    border: none;
+    color: white; 
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px; 
+    cursor: pointer;
+  }
+  
+  .btn-delete {
+    padding: 10px 16px;
+    background-color: var(--red);
+  }
+  
+  
+  img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Layout */
+  .container {
+    max-width: 982px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  
+  .main {
+    padding: 20px 0;
+  }
+  
+  /* Hero Section */
+  .hero-image {
+    max-height: 852px;
+    filter: drop-shadow(0px 44px 34px rgba(0, 0, 0, 0.25));
+    overflow: hidden;
+    border-radius: var(--border-radius);
+  }
+  p{
+margin-left: 42.5%;
+  }
+  .logo-header{
+    margin-left: 100%;
+  }
+  h1{
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin-right: 100px;
+  }
+  ul{
     
-    </header>
-    <p><b>VERSÃO ALFA:</b> projeto não finalizado.</p>
-
-
-    <section class="contact-info">
-        <h1>Contate a gente</h1>
-        <ul>
-    <li>(21) 99060-5562</li>  
-    <li>(21) 95902-6108</li>
-    <li>(21) 98733-0432</li> 
+    text-decoration: none;
+    list-style-type: none;
     
+    
+  }
+  .contact-info {
+    
+    color: var(--gray-light); /* Cor do texto */
+    padding: 10px; /* Espaçamento interno */
+    border-radius: var(--border-radius); /* Borda arredondada */
+    margin: 20px auto; /* Margem superior e inferior, centralizado horizontalmente */
+    max-width: 600px; /* Largura máxima da seção */
+    text-align: left; /* Centraliza o texto */
+    margin-right: 50%;
+}
 
-    <p>
-        Também temos o nosso Instagram
-        <span class="instagram-link-container">
-            <a href="https://www.instagram.com/connectionssparks/" target="_blank" class="instagram-link">@connectionssparks</a>
-        </span>
-    </p>
+.contact-info h2 {
+    font-size: var(--font-size-lg); /* Tamanho da fonte do título */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+}
 
-    </section>
-   
-</body>
-</html>
+.contact-info ul {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o preenchimento da lista */
+    margin: 0; /* Remove a margem da lista */
+
+
+}
+
+.contact-info ul li {
+  margin: 50px 0; /* Margem superior e inferior para cada item */
+  font-size: 200%; /* Tamanho da fonte */
+  margin-left: 24%;
+  color: #ffffff;
+}
+.contact-info p {
+  margin-top: 40px; /* Margem superior para o parágrafo do Instagram */
+  font-size: 190%;
+  margin-left: 5%;
+}
+
+.instagram-link {
+  color: #ab0bb9; /* Cor do texto do link do Instagram */
+  text-decoration: none; /* Remove o sublinhado do link */
+  font-weight: bold; /* Negrito para destacar o link */
+  margin-left: 15%;
+  
+}
+
+.instagram-link:hover {
+  text-decoration: underline; /* Sublinhado no hover */
+ 
+}
+.instagram-link-container {
+  
+  margin-top: 300px; /* Espaçamento superior entre o texto e o link */
+}
