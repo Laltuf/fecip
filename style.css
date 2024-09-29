@@ -27,7 +27,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: var(--gray-light);
   font-size: var(--font-size-base);
-  background-color: #0e0427; /* Cor de fundo que combina com a imagem */
+  background-color: rgb(13, 2, 38);
   background-image: url("/img/img-noise-361x370.png");
   margin: 0;
   background-image: url('https://cdn.dribbble.com/users/518045/screenshots/15443059/media/d3899c81930930b16696c029a0fa613b.png?resize=800x600&vertical=center');
@@ -206,8 +206,9 @@ img {
 
 /* Author - HomePage */
 .author {
-  padding: 10px 0;
+  padding: 3px 0;
   text-align: center;
+  
 }
 
 .author__heading {
@@ -226,6 +227,8 @@ img {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: 400;
+  color: #fff0f0;
+  
 }
 
 .article-ul {
@@ -469,5 +472,55 @@ img {
 }
 
 
+.author a.btn {
+  background-color: var(--purple);
+  background-image: linear-gradient(#cf57ff, #7700a7);
+  color: white; /* Cor do texto */
+  border: none; /* Remover borda */
+  padding: 10px 20px; /* Espaçamento interno */
+  text-align: center; /* Alinhamento do texto */
+  text-decoration: none; /* Remover sublinhado */
+  display: inline-block; /* Exibir como bloco em linha */
+  font-size: 16px; /* Tamanho da fonte */
+  transition: transform 0.1s ease; /* Transição suave */
+  cursor: pointer; /* Mostrar cursor de ponteiro */
+  border-radius: 10px;
+  margin-bottom: 100px; /* Espaço entre os botões */
+}
 
+.author a.btn:hover {
+  transform: translateY(2px); /* Abaixar 2 pixels */
+}
 
+@keyframes twinkle {
+  0%, 100% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0,5;
+  }
+}
+
+.star {
+  width: 5px;
+  height: 5px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  position: absolute;
+  animation: twinkle 2s infinite;
+  box-shadow: 0px 0px 10px rgb(255, 255, 255);
+}
+.star-overlay {
+  position: fixed; /* Fixa o fundo de estrelas */
+  top: 0;
+  left: 0;
+  width: 100%; /* Cobrir toda a largura da página */
+  height: 100%; /* Cobrir toda a altura da página */
+  pointer-events: none; /* Impedir que o clique interaja com este fundo */
+  background-image: url(''); /* Caminho para o PNG de estrelas */
+  background-size: 4%; /* Ajustar a imagem para cobrir a tela */
+  background-repeat: no-repeat; /* Não repetir */
+  z-index: 1; /* Colocar essa camada sobre outros elementos */
+  opacity: 0.7; /* Ajustar a transparência se desejar */
+  position: absolute;
+  }
