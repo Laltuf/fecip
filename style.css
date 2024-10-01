@@ -524,3 +524,51 @@ img {
   opacity: 0.7; /* Ajustar a transparência se desejar */
   position: absolute;
   }
+  .checkbox-container {
+    margin: 100px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-container input[type="checkbox"] {
+    display: none; 
+}
+
+.checkbox-container label {
+    position: relative;
+    padding-left: 30px; /* Espaço para o ícone */
+    margin-bottom: 15px; /* Espaço entre os labels */
+    cursor: pointer;
+    color: var(--gray-light);
+    font-size: 1rem; /* Ajuste o tamanho da fonte */
+    margin-top: 1%;
+}
+
+.checkbox-container label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px; /* Tamanho do ícone */
+    height: 18px; /* Tamanho do ícone */
+    border: 2px solid var(--purple);
+    border-radius: 4px; /* Canto arredondado */
+    background-color: transparent; /* Fundo transparente */
+    transition: background-color 0.2s, border-color 0.2s;
+    
+}
+
+.checkbox-container input[type="checkbox"]:checked + label::before {
+    background-color: var(--purple); /* Cor de fundo quando marcado */
+    border-color: var(--purple); /* Cor da borda quando marcado */
+    
+}
+
+.checkbox-container input[type="checkbox"]:checked + label {
+    color: var(--purple); /* Muda a cor do texto quando marcado */
+    
+}
+.btn{
+  margin-top: -10%;
+}
