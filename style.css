@@ -569,6 +569,19 @@ img {
     color: var(--purple); /* Muda a cor do texto quando marcado */
     
 }
-.btn{
+.btn-fim{
   margin-top: -10%;
+  background-color: var(--purple);
+  background-image: linear-gradient(#cf57ff, #7700a7);
+  color: white; /* Cor do texto */
+  border: none; /* Remover borda */
+  padding: 10px 20px; /* Espaçamento interno */
+  text-align: center; /* Alinhamento do texto */
+  text-decoration: none; /* Remover sublinhado */
+  display: inline-block; /* Exibir como bloco em linha */
+  font-size: 16px; /* Tamanho da fonte */
+  transition: transform 0.1s ease; /* Transição suave */
+  cursor: pointer; /* Mostrar cursor de ponteiro */
+  border-radius: 10px;
+  transform: translateY(2px); 
 }
