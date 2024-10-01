@@ -1,0 +1,140 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <title><%= locals.title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" defer src="/js/script.js"></script>
+    <script src="/js/jquery.js"></script>
+    
+    <script src="/js/tinymce/tinymce.min.js"></script>
+    
+</head>
+
+
+
+<div class="container">
+    <header class="header">
+
+    <a href="index.html">
+        <img src="logotipo.png" class="logo-header"/>
+    </a>
+
+    <nav class="header__nav">
+        <ul>
+            <li>
+                <a href="/" class="">Home</a>
+            </li>
+            <li>
+                <a href="/about" class="">About</a>
+            </li>
+            <li>
+                <a href="/contact" class="">Contato</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="header__button">
+        <button class="searchButton" aria-expanded="false">
+            Pesquisar
+            <svg width="17" height="17" viewbox="0 0 17 17" fill="none" xmins="http://www.w3.org/2000/svg">
+                <path d="M7.79167 13.4583C10.9213 13.4583 13.4583 10.9213 13.4583 7.79167C13.4583 4.66205 10.9213 2.125 7.79167 2.125C4.66205 2.125 2.125 4.66205 2.125 7.79167C2.125 10.9213 4.66205 13.4583 7.79167 13.4583Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14.875 14.875L11.7938 11.7938" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </div>
+
+    </header>
+    <p style="text-align: center"><b>VERSÃO ALFA:</b> projeto não finalizado.</p>
+    
+    
+    
+    
+    <form action="/interesses/<%= data._id %>?method=POST" method="POST">
+
+        <div class="checkbox-container">
+            <input type="checkbox" name="categoria" id="aba" value="Música" onchange="abrir('abaEstilos')"> 
+            <label for="aba">Música</label>
+            <div id="abaEstilos" style="display: none;">
+                <input type="checkbox" name="interesses" id="musica-pop" value="Música Pop"> 
+                <label for="musica-pop">Pop</label> <br>
+                <input type="checkbox" name="interesses" id="musica-eletronica" value="Música Eletrônica"> 
+                <label for="musica-eletronica">Eletrônica</label> <br>
+                <input type="checkbox" name="interesses" id="rock" value="Rock"> 
+                <label for="rock">Rock</label> <br>
+                <input type="checkbox" name="interesses" id="metal" value="Metal"> 
+                <label for="metal">Metal</label> <br>
+            </div>
+        
+            <input type="checkbox" name="categoria" id="abaBandas" value="Bandas" onchange="abrir('abaBandasEstilos')"> 
+            <label for="abaBandas">Bandas</label> 
+            <div id="abaBandasEstilos" style="display: none;">
+                <input type="checkbox" name="interesses" id="tame-impala" value="Tame Impala"> 
+                <label for="tame-impala">Tame Impala</label> <br>
+                <input type="checkbox" name="interesses" id="daft-punk" value="Daft Punk"> 
+                <label for="daft-punk">Daft Punk</label> <br>
+                <input type="checkbox" name="interesses" id="metro-boomin" value="Metro Boomin"> 
+                <label for="metro-boomin">Metro Boomin</label> <br>
+                <input type="checkbox" name="interesses" id="ghost" value="Ghost"> 
+                <label for="ghost">Ghost</label> <br>
+                <input type="checkbox" name="interesses" id="nine-inch-nails" value="Nine Inch Nails"> 
+                <label for="nine-inch-nails">Nine Inch Nails</label> <br>
+                <input type="checkbox" name="interesses" id="system-of-a-down" value="System of a Down"> 
+                <label for="system-of-a-down">System of a Down</label> <br>
+                <input type="checkbox" name="interesses" id="metallica" value="Metallica"> 
+                <label for="metallica">Metallica</label> <br>
+            </div>
+        
+            <input type="checkbox" name="categoria" id="abaCarros" value="Carros"> 
+            <label for="abaCarros">Carros</label> <br>
+            <input type="checkbox" name="categoria" id="abaCinema" value="Cinema"> 
+            <label for="abaCinema">Cinema</label> <br>
+            <input type="checkbox" name="categoria" id="abaJogos" value="Videogames"> 
+            <label for="abaJogos">Videogames</label> <br>
+            <input type="checkbox" name="categoria" id="abaEsportes" value="Esportes"> 
+            <label for="abaEsportes">Esportes</label> <br>
+        </div>
+        
+        <script>
+            function abrir(id) {
+    var element = document.getElementById(id);
+    if (element.style.display === "none" || element.style.display === "") {
+        element.style.display = "block"; // Mostra a lista
+    } else {
+        element.style.display = "none"; // Esconde a lista
+    }
+}
+        </script>
+        
+        <input type="submit" value="Fim" class="btn">
+        
+        </form>
+        
+        <script>  
+            function abrir(categoria){
+                document.getElementById(categoria).style.display="flex";
+            };
+        </script>
+     <style>
+        body{
+            background-position: 800px 350px;
+        }
+    </style>
+</div>
+<div class="star" style="top: 56%; left: 25%;"></div>
+    <div class="star" style="top: 24%; left: 68%;"></div>
+    <div class="star" style="top: 74%; left: 42%;"></div>
+    <div class="star" style="top: 16%; left: 20%;"></div>
+    <div class="star" style="top: 37%; left: 40%;"></div>
+    <div class="star" style="top: 11%; left: 60%;"></div>
+    <div class="star" style="top: 10%; left: 22%;"></div>
+    <div class="star" style="top: 3%; left: 95%;"></div>
+    <div class="star" style="top: 50%; left: 54%;"></div>
+    <div class="star" style="top: 15%; left: 90%;"></div>
+    <div class="star" style="top: 30%; left: 10%;"></div>
+    <div class="star" style="top: 80%; left: 10%;"></div>
+    <div class="star" style="top: 80%; left: 60%;"></div>
+
+
