@@ -16,14 +16,12 @@
 </head>
 
 
-
 <div class="container">
     <header class="header">
 
         <a href="index.html">
             <img src="logotipo.png" class="logo-header" />
         </a>
-
         <nav class="header__nav">
             <ul>
                 <li>
@@ -37,6 +35,8 @@
                 </li>
             </ul>
         </nav>
+        
+        
 
         <div class="header__button">
             <button class="searchButton" aria-expanded="false">
@@ -92,11 +92,6 @@
 <div class="star" style="top: 77%; left: 39%;"></div>
 <div class="star" style="top: 83%; left: 69%;"></div>
 
-    <!-- INDEX COMEÇA A PARTIR DAQUI -->
-
-
-
-
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
@@ -108,7 +103,7 @@
         <p class="author__body">Faça parte da nossa galáxia! Crie um perfil:</p>
         <a href="/criar" class="btn">Criar Novo Perfil</a>
         <a href="/novogrupo" class="btn"> NOVA CONSTELAÇÃO</a>
-        <a href="/listagrupos" class="btn"> VER CONSTELAÇÕES (grupos)</a>
+        
     </div>
 
 
@@ -129,24 +124,120 @@
                 
         </div>
 
-        <h2 class="articles__heading" style="margin-bottom: 0;">Perfis:</h2>
+        
+        <section style="display: flex; flex-direction: column; align-items: center;">
+            <div style="display: flex; gap: 10px;">
+               
+                
+            </div>
+            <input type="submit" value="Perfis" class="btn-perfil" onclick="toggleInfo('info-perfis')">
+            <input type="submit" value="Grupos" class="btn-grupos" onclick="toggleInfo('info-grupos')">
+            <input type="submit" value="Postagens" class="btn-postagens" onclick="toggleInfo('info-postagens')">
+            <!-- Seção de Perfis -->
+            <div id="info-perfis" style="display: none; margin-top: 20px;">
+                <ul class="article-ul">
+                    <li>
+                        <a href="post.html">
+                            <img src='user.png' class="foto-perfil">
+                            <span class="article-list__name">Nome do Usuário</span>
+                            <span class="article-list__date">
+                                Criado em: 23/11/2007
+                                <p>Curtidas: X</p>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <a href="/?page=<%= nextPage %>" class="pagination">&lt; Ver perfis anteriores</a>
+            </div>
+        
+            
+        </section>
+        <!-- Seção de Grupos -->
+        <div id="info-grupos" style="display: none; margin-top: 20px;">
+            <h1>CONSTELAÇÕES:</h1>
+            <ul>
+                <% grupos.forEach(grupo => { %>
+                    <li>
+                        <dt>
+                            <a href='/grupo/<%= grupo._id %>'><b>nome do grupo</b></a>
+                        </dt>
+                        <dd>descrição do grupo</dd>
+                    </li>
+                <% }) %>
+            </ul>
+        </div>
 
-        <ul class="article-ul">
-                <li>
-                    <a href="post.html">
-                        <img src='user.png' class="foto-perfil">
-                        <span class="article-list__name">
-                            Nome do Usuário
-                        </span>
-                        <span class="article-list__date">Criado em: 23/11/2007
-                                <p>Curtidas: X
-                                </p></span>
-                    </a>
-                </li>
-        </ul>
+        <div id="info-postagens" style="display: none; margin-top: 20px;">
+           
+    <h3>POSTS:</h3>
+    <ul class="publicação-ul">
+        <div style="display: flex;">
+            <img src="user.png" class="foto-perfil">
+            <div style="flex: 1; padding-left: 20px;">
 
-            <a href="/?page=<%= nextPage %>" class="pagination">&lt; Ver perfis anteriores</a>
-    </section>
+                <font color="yellow"> &starf; </font>
+                <b> Nome do Usuário </b>
 
+                <div style="resize:none; padding-bottom: 10%;">
+                    Texto do post.
+                </div>
+
+            </div>
+        </div>
+    </ul>
+
+</div> <br>
+<script>
+    function atualizarContador() { //contador de letras dos comentários!
+        var input = document.getElementById('texto');
+        var contador = document.getElementById('contador');
+        var caracteresRestantes = 250 - input.value.length;
+        contador.textContent = "Caracteres restantes: " + caracteresRestantes + "/250";
+    };
+
+    function atualizarCurtidas() {
+        var numero = document.getElementById('numeroCurtidas');
+
+        numero.textContent = numero + 1;
+    }
+
+</script>
+        </div>
+        <!-- JavaScript -->
+        <script>
+            // Função original para alternar a visibilidade
+            function toggleInfo(id) {
+                // Oculta todas as seções primeiro
+                document.getElementById('info-perfis').style.display = 'none';
+                document.getElementById('info-grupos').style.display = 'none';
+                document.getElementById('info-postagens').style.display = 'none';
+        
+                // Exibe a seção correspondente ao botão clicado
+                var info = document.getElementById(id);
+                if (info.style.display === "none") {
+                    info.style.display = "block";
+                } else {
+                    info.style.display = "none";
+                }
+            }
+        
+            // Função extra que pode ser usada ou integrada ao antigo script para outros comportamentos
+            function mostrarSecao(secaoId) {
+                // Oculta todas as seções
+                document.getElementById('info-perfis').style.display = 'none';
+                document.getElementById('info-grupos').style.display = 'none';
+                document.getElementById('info-postagens').style.display = 'none';
+        
+                // Exibe a seção selecionada
+                document.getElementById(secaoId).style.display = 'block';
+            }
+        </script>
+        
+        <style>
+           
+            #info-perfis, #info-grupos {
+                width: 100%; /* Garantir que a largura seja adequada */
+            }
+        </style>
 
 </div>
