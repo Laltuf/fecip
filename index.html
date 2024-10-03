@@ -72,7 +72,7 @@
 <div class="star" style="top: 34%; left: 40%;"></div>
 <div class="star" style="top: 11%; left: 60%;"></div>
 <div class="star" style="top: 10%; left: 22%;"></div>
-<div class="star" style="top: 3%; left: 95%;"></div>
+<div class="star" style="top: 10%; left: 95%;"></div>
 <div class="star" style="top: 50%; left: 54%;"></div>
 <div class="star" style="top: 15%; left: 90%;"></div>
 <div class="star" style="top: 30%; left: 10%;"></div>
@@ -97,13 +97,20 @@
 
     <div class="author">
         <h3>
-            nome do usuário logado (favor tirar daqui e criar um header bonito)
+            LOGADO COMO:
+      <% if (nomeCookie != null) { %>
+        <%= nomeCookie %>
+      <% } %>
+            
         </h3>
         <h1 class="author__heading">CONNECTIONS: SPARKS</h1>
         <p class="author__body">Faça parte da nossa galáxia! Crie um perfil:</p>
         <a href="/criar" class="btn">Criar Novo Perfil</a>
         <a href="/novogrupo" class="btn"> NOVA CONSTELAÇÃO</a>
         
+        <form action="/sair" method="POST">
+            <input type="submit" value="meter o pé" class="btn-deslogar">  
+      </form>
     </div>
 
 
