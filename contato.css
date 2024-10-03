@@ -505,3 +505,27 @@ margin-left: 42.5%;
   
   margin-top: 300px; /* Espaçamento superior entre o texto e o link */
 }
+
+.star {
+  width: 5px;
+  height: 5px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  position: absolute;
+  animation: twinkle 2s infinite;
+  box-shadow: 0px 0px 10px rgb(255, 255, 255);
+}
+.star-overlay {
+  position: fixed; /* Fixa o fundo de estrelas */
+  top: 0;
+  left: 0;
+  width: 100%; /* Cobrir toda a largura da página */
+  height: 100%; /* Cobrir toda a altura da página */
+  pointer-events: none; /* Impedir que o clique interaja com este fundo */
+  background-image: url(''); /* Caminho para o PNG de estrelas */
+  background-size: 4%; /* Ajustar a imagem para cobrir a tela */
+  background-repeat: no-repeat; /* Não repetir */
+  z-index: 1; /* Colocar essa camada sobre outros elementos */
+  opacity: 0.7; /* Ajustar a transparência se desejar */
+  position: absolute;
+  }
