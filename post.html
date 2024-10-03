@@ -1,4 +1,4 @@
-<head></head>
+<head>
     <link rel="stylesheet" href="style.css">
 
     <meta charset="UTF-8">
@@ -54,31 +54,119 @@
     </header>
     <p style="text-align: center"><b>VERSÃO ALFA:</b> projeto não finalizado.</p>
 
-    <div class="star-overlay"></div>
-<style>
-    body{
-        background-position: 1100px 200px; /* 20px da esquerda e 50px do topo */
-    }
-    
-    
-    
 
-    
-</style>
-<div class="star" style="top: 56%; left: 25%;"></div>
-<div class="star" style="top: 24%; left: 68%;"></div>
-<div class="star" style="top: 74%; left: 42%;"></div>
-<div class="star" style="top: 16%; left: 20%;"></div>
-<div class="star" style="top: 34%; left: 40%;"></div>
-<div class="star" style="top: 11%; left: 60%;"></div>
-<div class="star" style="top: 10%; left: 22%;"></div>
-<div class="star" style="top: 3%; left: 95%;"></div>
-<div class="star" style="top: 50%; left: 54%;"></div>
-<div class="star" style="top: 15%; left: 90%;"></div>
-<div class="star" style="top: 30%; left: 10%;"></div>
-<div class="star" style="top: 80%; left: 10%;"></div>
-<div class="star" style="top: 80%; left: 60%;"></div>
-<div class="star" style="top: 12%; left: 34%;"></div>
+
+
+    <div></div>
+    <img src="user.png" class="foto-perfil">
+    <div class="nome-perfil" id="nome"><b>
+            Nome do Usuário
+        </b></div>
+    Curtidas: <label type="number" id="numeroCurtidas">
+        X
+    </label>
+
+
+
+
+    <div style="margin-top: 1%; margin-bottom: 1%;">
+        caso o usuário esteja logado:
+        <a href="/editar-perfil/<%= data._id %>" class="btn">Editar Perfil</a>
+<form action="/curtir/<%= data.id %>" method="POST">
+    <input type="submit" value="Curtir Perfil" class="btn">
+</form>
+
+    </div>
+
+
+    <div style="margin-top: -20%; margin-left: 43%;">
+        <p> <b>Instagram: </b> <a href="https://www.instagram.com/<%= data.insta %>/" target="_blank"
+                rel="noopener noreferrer">@abc</a> </p>
+
+        <p>
+            <b>Sexo:</b>
+            helicopter helicopter
+        </p>
+
+        <p> <b> Interesses: </b>
+            a, b, c.
+        </p>
+
+        <p> <b> Nascimento: </b>
+            01/01/1000
+        </p>
+
+        <b>Biografia:</b>
+        <div class="biografia-box">
+            <article class="article">
+            Informações:
+        </article>
+    </div>
+</div>
+        
+
+
+
+
+    <h1></h1>
+    <div>
+        INFORMAÇÕES DE DIAGNÓSTICO:<br>
+        <b> ID: </b>
+        id <br>
+        <b> Criado em: </b>
+        1111
+    </div>
+
+
+
+
+    <h1></h1>
+    <a href="/interesses/<%= data.id %>">[!] EDITAR TAGS [!]</a>
+
+    <a href="/verify/<%= data.id %>">[@] VER CONSTELAÇÃO [@]</a>
+
+    <style>
+        body{
+            background-position: 1150px 200px;
+        }
+    </style>
+
+
+    <form action="/post/<%= data.id %>" method="POST">
+        <h3>CRIAR POST:</h3>
+
+        <div style="display: flex;">
+            <img src="user.png" class="foto-perfil">
+            <div style="flex: 1; padding-left: 20px;">
+
+                <b>Nome do Usuário Logado</b> - <font color="grey"><i>(Por favor, mantenha o respeito.)</i></font>
+
+                <textarea name="texto" id="texto" coLs="50" rows="4" maxlength="200" oninput="atualizarContador()"
+                    style="resize:none; width: 100%; height: 38%;"></textarea>
+
+                <div style="display: flex; align-items: center;">
+                    <input type="submit" value="Adicionar" class="btn">
+                    <div id="contador" style="padding-left: 2%;"></div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+    <div class="star" style="top: 56%; left: 25%;"></div>
+    <div class="star" style="top: 24%; left: 68%;"></div>
+    <div class="star" style="top: 74%; left: 42%;"></div>
+    <div class="star" style="top: 16%; left: 20%;"></div>
+    <div class="star" style="top: 37%; left: 40%;"></div>
+    <div class="star" style="top: 11%; left: 60%;"></div>
+    <div class="star" style="top: 10%; left: 22%;"></div>
+    <div class="star" style="top: 5%; left: 95%;"></div>
+    <div class="star" style="top: 50%; left: 54%;"></div>
+    <div class="star" style="top: 15%; left: 90%;"></div>
+    <div class="star" style="top: 30%; left: 10%;"></div>
+    <div class="star" style="top: 80%; left: 10%;"></div>
+    <div class="star" style="top: 80%; left: 60%;"></div>
+    <div class="star" style="top: 12%; left: 34%;"></div>
 <div class="star" style="top: 67%; left: 22%;"></div>
 <div class="star" style="top: 58%; left: 75%;"></div>
 <div class="star" style="top: 9%; left: 49%;"></div>
@@ -92,61 +180,86 @@
 <div class="star" style="top: 77%; left: 39%;"></div>
 <div class="star" style="top: 83%; left: 69%;"></div>
 
-    <!-- INDEX COMEÇA A PARTIR DAQUI -->
 
 
-
-
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-
-    <div class="author">
-        <h3>
-            nome do usuário logado (favor tirar daqui e criar um header bonito)
-        </h3>
-        <h1 class="author__heading">CONNECTIONS: SPARKS</h1>
-        <p class="author__body">Faça parte da nossa galáxia! Crie um perfil:</p>
-        <a href="/criar" class="btn">Criar Novo Perfil</a>
-        <a href="/novogrupo" class="btn"> NOVA CONSTELAÇÃO</a>
-        <a href="/listagrupos" class="btn"> VER CONSTELAÇÕES (grupos)</a>
-    </div>
-
-
-    <section class="articles">
-        <h2 class="articles__heading" style="text-align: center;">Últimas Publicações:</h2>
-
-        <div class="publications">
-                <div class="boxPublicacoes">
-                    <a href="/publicacao/<%= publicacao._id %>">
-                        Título da Publicação<a> <i class="material-symbols-outlined" style="font-size: 1rem;">
-                                    north_east</i> <br>
-                                <b><i>Por:</b>
-                                Nome do Autor </i> <br>
-                                    <p class="textoBox">
-                                        Texto da Publicação
-                                    </p>
-                </div>
+    <h3>POSTS:</h3>
+    <% comentarios2.forEach(comentario => { %>
+        <% if (comentario.idResposta === data.id) { %>
+            <ul class="publicação-ul">
+    
                 
-        </div>
+                
+                <div style="display: flex;">
+                    <img src="<%= comentario.imagem %>" class="foto-perfil"> 
+                    <div style="flex: 1; padding-left: 20px;" class="container-text">
+                        
+                        <font color="yellow"> &starf; </font>
+                        <b> <%= comentario.assinatura %> </b>
+        
+                            <div style="resize:none; padding-bottom: 10%; position: relative;">
+                                <%= comentario.texto %> 
+                            </div>
+                            <button class="btn-comentar" onclick="toggleCommentBox('<%= comentario._id %>')">COMENTAR</button>
+                    </div>
+                    
+                    CURTIDAS: <%= comentario.likes.length %>
+                    <% if (!comentario.likes.includes(idCookie)) { %>
+                        <div>
+                            <form action="/curtir-comentario/<%= comentario._id %>?_method=POST" method="POST"></form>
+                                <button class="btn-curtir">CURTIR</button>
+                            </form>
+                        </div>
+                        
+                    <% } %>
+    
+    
+                    <% if (idCookie == data._id) { %>
+                        <div>
+                            <form action="/delete-post-user/<%= comentario._id %>?_method=DELETE" method="POST">
+                                <button class="btn-apaga">Apagar</button>
+                            </form>
+                        </div>
+                    <% } %>
+                </div>
+           
+                
 
-        <h2 class="articles__heading" style="margin-bottom: 0;">Perfis:</h2>
+            <!-- Caixa de Comentário Oculta -->
+            <div id="comment-box-<%= comentario._id %>" style="display: none; margin-top: 10px;">
+                <form action="/comentar-post/<%= comentario._id %>" method="POST">
+                    
+                    <textarea name="comentario" rows="3" placeholder="Escreva seu comentário"></textarea>
+                    
+                    <input type="submit" value="Enviar" class="btn-enviar-comentario">
+                </form>
+                
+            </div>
 
-        <ul class="article-ul">
-                <li>
-                    <a href="post.html">
-                        <img src='user.png' class="foto-perfil">
-                        <span class="article-list__name">
-                            Nome do Usuário
-                        </span>
-                        <span class="article-list__date">Criado em: 23/11/2007
-                                <p>Curtidas: X
-                                </p></span>
-                    </a>
-                </li>
         </ul>
+    <% } %>
+<% }) %>
+</div> <br>
+<script>
+    function atualizarContador() { //contador de letras dos comentários!
+        var input = document.getElementById('texto');
+        var contador = document.getElementById('contador');
+        var caracteresRestantes = 250 - input.value.length;
+        contador.textContent = "Caracteres restantes: " + caracteresRestantes + "/250";
+    };
 
-            <a href="/?page=<%= nextPage %>" class="pagination">&lt; Ver perfis anteriores</a>
-    </section>
+    function atualizarCurtidas() {
+        var numero = document.getElementById('numeroCurtidas');
 
+        numero.textContent = numero + 1;
+    }
+    function toggleCommentBox(id) {
+    var commentBox = document.getElementById('comment-box-' + id);
+    if (commentBox.style.display === "none" || commentBox.style.display === "") {
+        commentBox.style.display = "block";
+    } else {
+        commentBox.style.display = "none";
+    }
+}
 
-</div>
+</script>
+
