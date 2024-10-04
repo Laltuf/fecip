@@ -2,7 +2,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: var(--gray-light);
   font-size: var(--font-size-base);
-  background-color: #0e0427; /* Cor de fundo que combina com a imagem */
+  background-color: rgb(13, 2, 38);
   background-image: url("/img/img-noise-361x370.png");
   margin: 0;
   background-image: url('https://cdn.dribbble.com/users/518045/screenshots/15443059/media/d3899c81930930b16696c029a0fa613b.png?resize=800x600&vertical=cente');
@@ -23,7 +23,10 @@ body {
     grid-template-areas: 
     "logo button"
     "menu menu";
-    padding-top: 15px;
+    padding-top: 10px;
+    padding-top: 20px;
+    position: relative; /* Para permitir o uso de elementos posicionados */
+  z-index: 1;
   }
   
   @media only screen and (min-width: 768px) {
@@ -528,4 +531,35 @@ margin-left: 42.5%;
   z-index: 1; /* Colocar essa camada sobre outros elementos */
   opacity: 0.7; /* Ajustar a transparência se desejar */
   position: absolute;
+  }
+  .btn-deslogar{
+    
+     background-color: #8b080e;
+     
+     color: white; /* Cor do texto */
+     border: none; /* Remover borda */
+     padding: 10px 20px; /* Espaçamento interno */
+     text-align: center; /* Alinhamento do texto */
+     text-decoration: none; /* Remover sublinhado */
+     font-size: 15px; 
+     transition: transform 0.1s ease; 
+     cursor: pointer; 
+     border-radius: 10px;
+     box-shadow: #7700a7;
+     margin-left: 93%;
+     margin-top: -26.3%;
+     z-index: 10;
+     
+     position: absolute;
+     
+   }
+   header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -200px; /* Aumenta o fundo para a esquerda (ajuste o valor conforme necessário) */
+    width: calc(120% + 50px); /* Ajusta a largura para incluir a área extra à esquerda */
+    height: 110%;
+    background-color: rgba(19, 3, 58, 0.582);
+    z-index: -1; /* Colocar o fundo abaixo de todos os outros elementos */
   }
