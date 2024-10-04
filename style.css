@@ -100,6 +100,7 @@ img {
   padding: 0 10px;
 margin-top: 2%;
 
+
 }
 
 .main {
@@ -126,8 +127,20 @@ margin-top: 2%;
   "menu menu";
   padding-top: 30px;
   margin-top: -6%;
+  position: relative; /* Para permitir o uso de elementos posicionados */
+  z-index: 1;
 }
-
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -850px; /* Aumenta o fundo para a esquerda (ajuste o valor conforme necessário) */
+  width: calc(259% + 50px); /* Ajusta a largura para incluir a área extra à esquerda */
+  height: 110%;
+  background-color: rgba(19, 3, 58, 0.582);
+  
+  z-index: -1; /* Colocar o fundo abaixo de todos os outros elementos */
+}
 @media only screen and (min-width: 768px) {
   .header {
     grid-template-columns: auto 1fr auto;
@@ -454,7 +467,20 @@ margin-top: 2%;
   text-overflow: ellipsis;
   
 }
-
+.publicação-ul {
+  list-style-type: none;
+  font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+  display: flex;
+  flex-direction: column;
+  background-color: #2c2a2a;
+  border-radius: 10px;
+  border: 1.9px solid;
+  border-color: #b100f7;
+  margin-bottom: 1rem;
+  padding: 0.5em;
+  height: 200x;
+  
+}
 .publications {
   max-width: 100%;
   padding: 5px;
@@ -724,7 +750,7 @@ margin-left: -1025%;
   cursor: pointer; 
   border-radius: 5px;
   box-shadow: #5d2672;
-  margin-left: 29%;
+  margin-left: 25%;
 }
 .btn-comentar {
   background-color: #4CAF50;
@@ -758,20 +784,7 @@ margin-left: -1025%;
   position: absolute;
   border-radius: 5px;
 }
-.publicação-ul {
-  list-style-type: none;
-  font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
-  display: flex;
-  flex-direction: column;
-  background-color: #2c2a2a;
-  border-radius: 10px;
-  border: 1.9px solid;
-  border-color: #b100f7;
-  margin-bottom: 1rem;
-  padding: 0.5em;
-  height: 200x;
-  
-}
+
 .biografia-box {
   background-color: rgba(19, 3, 56, 0.685); /* Cor de fundo leve */
   border: 1px solid #ccc; /* Borda leve */
@@ -796,7 +809,7 @@ margin-left: -1025%;
   margin-left: -39%;
 }
 .btn-deslogar{
- margin-top: -42%;
+ margin-top: -6.5%;
   background-color: #8b080e;
   
   color: white; /* Cor do texto */
@@ -809,6 +822,67 @@ margin-left: -1025%;
   cursor: pointer; 
   border-radius: 10px;
   box-shadow: #7700a7;
-  margin-left: 130%;
+  margin-left: 189%;
   
+}
+.usuario-index{
+font-size: 250%;
+}
+.btn-curtir-index{
+  margin-top: -2%;
+  
+  background-color: #4CAF50;
+  background-image: linear-gradient(#17971e, #07852c);
+  color: white; /* Cor do texto */
+  border: none; /* Remover borda */
+  padding: 5px 8px; /* Espaçamento interno */
+  text-align: center; /* Alinhamento do texto */
+  text-decoration: none; /* Remover sublinhado */
+  font-size: 14px; 
+  transition: transform 0.1s ease; 
+  cursor: pointer; 
+  border-radius: 5px;
+  box-shadow: #5d2672;
+margin-left: -9%;
+margin-top: 3.3%;
+position: absolute;
+}
+#comment-box-index textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 4px;
+  resize: none;
+}
+
+.contador-caracteres {
+  font-size: 12px;
+  color: #666;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.btn-enviar-comentario {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-enviar-comentario:hover {
+  background-color: #45a049;
+}
+
+.btn-comentar-index{
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-left: -45%;
+  border-radius: 5px;
 }
