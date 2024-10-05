@@ -33,11 +33,12 @@
                 <li>
                     <a href="/contact" class="">Contato</a>
                 </li>
-                
+               
             </ul>
             <form action="/sair" method="POST">
                 <input type="submit" value="meter o pé" class="btn-deslogar">  
           </form>
+          
         </nav>
         
         
@@ -177,87 +178,77 @@
            
     <h3>POSTS:</h3>
     <ul class="publicação-ul">
+       
+                
+                
         <div style="display: flex;">
-            <img src="<%= comentario.imagem %>" class="foto-perfil">
-            <div style="flex: 1; padding-left: 20px;">
-
+            <img src="<%= comentario.imagem %>" class="foto-perfil"> 
+            <div style="flex: 1; padding-left: 20px;" class="container-text">
+                
                 <font color="yellow"> &starf; </font>
                 <b> <%= comentario.assinatura %> </b>
-        
-                            <div style="resize:none; padding-bottom: 10%; position: relative;">
-                                <%= comentario.texto %> 
-                            </div>
-                            <button class="btn-comentar-index" onclick="toggleCommentBox('<%= comentario._id %>')">COMENTAR</button>
+
+                    <div style="resize:none; padding-bottom: 10%; position: relative;">
+                        <%= comentario.texto %> 
                     </div>
+                    <button class="btn-comentar" onclick="toggleCommentBox('<%= comentario._id %>')">COMENTAR</button>
+            </div>
+            
+            CURTIDAS: <%= comentario.likes.length %>
+            <% if (!comentario.likes.includes(idCookie)) { %>
+                <div>
+                    <form action="/curtir-comentario/<%= comentario._id %>?_method=POST" method="POST"></form>
+                        <button class="btn-curtir" style="margin-left: -1240%;">CURTIR</button>
+                    </form>
+                </div>
+                
+            <% } %>
 
-                <div style="resize:none; padding-bottom: 10%;">
-                    
-                    
-                    CURTIDAS: <%= comentario.likes.length %>
-                    <% if (!comentario.likes.includes(idCookie)) { %>
-                        <div>
-                            <form action="/curtir-comentario/<%= comentario._id %>?_method=POST" method="POST"></form>
-                                <button class="btn-curtir-index">CURTIR</button>
-                            </form>
-                        </div>
-                        
-                    <% } %>
+
+            
         </div>
-        <div id="comment-box-index<%= comentario._id %>" style="display: none; margin-top: 10px;">
-            <form action="/comentar-post/<%= comentario._id %>" method="POST">
-                <textarea id="texto<%= comentario._id %>" name="comentario" rows="3" maxlength="250" placeholder="Escreva seu comentário" oninput="atualizarContador('<%= comentario._id %>')"></textarea>
-                <p id="contador<%= comentario._id %>" class="contador-caracteres">Caracteres restantes: 250/250</p>
-                <input type="submit" value="Enviar" class="btn-enviar-comentario">
-            </form>
-        </div>
+   
         
-    </ul>
 
+    <!-- Caixa de Comentário Oculta -->
+    <div id="comment-box-index<%= comentario._id %>" style="display: none; margin-top: 10px;">
+        <form action="/comentar-post/<%= comentario._id %>" method="POST">
+            
+            <textarea name="comentario" rows="3" placeholder="Escreva seu comentário"></textarea>
+            
+            <input type="submit" value="Enviar" class="btn-enviar-comentario">
+        </form>
+        
+    </div>
+
+</ul>
+<% } %>
+<% }) %>
 </div> <br>
-<script>
-    function atualizarContador() { //contador de letras dos comentários!
-        var input = document.getElementById('texto');
-        var contador = document.getElementById('contador');
-        var caracteresRestantes = 250 - input.value.length;
-        contador.textContent = "Caracteres restantes: " + caracteresRestantes + "/250";
-    };
 
-    function atualizarCurtidas() {
-        var numero = document.getElementById('numeroCurtidas');
+    
 
-        numero.textContent = numero + 1;
-    }
 
-</script>
         </div>
         <!-- JavaScript -->
         <script>
-            // Função original para alternar a visibilidade
-            function toggleInfo(id) {
-                // Oculta todas as seções primeiro
-                document.getElementById('info-perfis').style.display = 'none';
-                document.getElementById('info-grupos').style.display = 'none';
-                document.getElementById('info-postagens').style.display = 'none';
-        
-                // Exibe a seção correspondente ao botão clicado
-                var info = document.getElementById(id);
-                if (info.style.display === "none") {
-                    info.style.display = "block";
-                } else {
-                    info.style.display = "none";
-                }
-            }
-        
-            // Função extra que pode ser usada ou integrada ao antigo script para outros comportamentos
-            function mostrarSecao(secaoId) {
-                // Oculta todas as seções
-                document.getElementById('info-perfis').style.display = 'none';
-                document.getElementById('info-grupos').style.display = 'none';
-                document.getElementById('info-postagens').style.display = 'none';
-        
-                // Exibe a seção selecionada
-                document.getElementById(secaoId).style.display = 'block';
-            }
+           function toggleInfo(id) {
+        var info = document.getElementById(id);
+
+        // Verifica se a seção já está visível
+        if (info.style.display === "block") {
+            // Se estiver visível, esconde a seção
+            info.style.display = "none";
+        } else {
+            // Se não estiver visível, oculta todas as outras seções primeiro
+            document.getElementById('info-perfis').style.display = 'none';
+            document.getElementById('info-grupos').style.display = 'none';
+            document.getElementById('info-postagens').style.display = 'none';
+
+            // Exibe a seção correspondente ao botão clicado
+            info.style.display = "block";
+        }
+    
             function toggleCommentBox(id) {
     var commentBox = document.getElementById('comment-box-index' + id);
     if (commentBox.style.display === "none" || commentBox.style.display === "") {
@@ -272,7 +263,11 @@ function atualizarContador(id) {
     var caracteresRestantes = 250 - input.value.length;
     contador.textContent = "Caracteres restantes: " + caracteresRestantes + "/250";
 }
+function atualizarCurtidas() {
+        var numero = document.getElementById('numeroCurtidas');
 
+        numero.textContent = numero + 1;
+    }
         </script>
         
         <style>
