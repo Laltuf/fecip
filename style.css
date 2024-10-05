@@ -773,7 +773,7 @@ margin-left: -1025%;
 }
 
 .btn-enviar-comentario {
-  background-color: #008CBA;
+  background-color: #0e6380;
   color: white;
   border: none;
   padding: 5px 8px;
@@ -828,32 +828,7 @@ margin-left: -1025%;
 .usuario-index{
 font-size: 250%;
 }
-.btn-curtir-index{
-  margin-top: -2%;
-  
-  background-color: #4CAF50;
-  background-image: linear-gradient(#17971e, #07852c);
-  color: white; /* Cor do texto */
-  border: none; /* Remover borda */
-  padding: 5px 8px; /* Espaçamento interno */
-  text-align: center; /* Alinhamento do texto */
-  text-decoration: none; /* Remover sublinhado */
-  font-size: 14px; 
-  transition: transform 0.1s ease; 
-  cursor: pointer; 
-  border-radius: 5px;
-  box-shadow: #5d2672;
-margin-left: -9%;
-margin-top: 3.3%;
-position: absolute;
-}
-#comment-box-index textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 10px;
-  border-radius: 4px;
-  resize: none;
-}
+
 
 .contador-caracteres {
   font-size: 12px;
@@ -866,23 +841,11 @@ position: absolute;
   background-color: #4CAF50;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 7px 15px;
   border-radius: 4px;
   cursor: pointer;
+  margin-top: -0.6%;
+ 
 }
 
-.btn-enviar-comentario:hover {
-  background-color: #45a049;
-}
 
-.btn-comentar-index{
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 5px 8px;
-  font-size: 14px;
-  cursor: pointer;
-  margin-top: 5px;
-  margin-left: -45%;
-  border-radius: 5px;
-}
