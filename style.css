@@ -130,17 +130,7 @@ margin-top: 2%;
   position: relative; /* Para permitir o uso de elementos posicionados */
   z-index: 1;
 }
-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -850px; /* Aumenta o fundo para a esquerda (ajuste o valor conforme necessário) */
-  width: calc(259% + 50px); /* Ajusta a largura para incluir a área extra à esquerda */
-  height: 110%;
-  background-color: rgba(19, 3, 58, 0.582);
-  
-  z-index: -1; /* Colocar o fundo abaixo de todos os outros elementos */
-}
+
 @media only screen and (min-width: 768px) {
   .header {
     grid-template-columns: auto 1fr auto;
@@ -529,6 +519,7 @@ header::before {
   position: absolute;
   animation: twinkle 2s infinite;
   box-shadow: 0px 0px 10px rgb(255, 255, 255);
+  z-index: -1;
 }
 .star-overlay {
   position: fixed; /* Fixa o fundo de estrelas */
@@ -847,5 +838,11 @@ font-size: 250%;
   margin-top: -0.6%;
  
 }
-
-
+.estert{
+ font-size: 200%;
+ margin-left: 0%;
+}
+ .sobre-nos{
+  margin-top: 10%;
+  font-size: 500%;
+ }
